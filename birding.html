@@ -1,0 +1,137 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birding — Mark Nepf</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #ffffff;
+        color: #222222;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+    }
+
+    .container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 70px 30px;
+    }
+
+    header {
+        margin-bottom: 60px;
+    }
+
+    h1 {
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        margin: 0 0 8px 0;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        color: #666666;
+        margin: 0;
+    }
+
+    nav {
+        margin-top: 28px;
+    }
+
+    nav a {
+        margin-right: 24px;
+        color: #245f8f;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    h2 {
+        font-size: 21px;
+        font-weight: 600;
+        margin: 0 0 25px 0;
+    }
+
+    .sighting {
+        padding-bottom: 22px;
+        margin-bottom: 22px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .species {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 3px 0;
+    }
+
+    .details {
+        font-size: 15px;
+        color: #666666;
+        margin: 0;
+    }
+
+    .ebird-link {
+        margin-top: 35px;
+    }
+
+    .ebird-link a {
+        color: #245f8f;
+        text-decoration: none;
+    }
+
+    .ebird-link a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 45px 22px;
+        }
+
+        h1 {
+            font-size: 34px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin-bottom: 8px;
+            margin-right: 18px;
+        }
+    }
+</style>
+
+</head> <body> <div class="container">
+<header>
+    <h1>Birding</h1>
+
+    <p class="subtitle">
+        Recent observations
+    </p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#publications">Publications</a>
+        <a href="index.html#teaching">Teaching</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="MarkNepf_CV.pdf" target="_blank">CV</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Recent Sightings</h2>
+
+    <div id="sightings">
+        <p>Loading recent sightings...</p>
+    </div>
+
+    <p class="ebird-link">
+        <a href="https://ebird.org/profile/Mjg0MDM3OQ" target="_blank">
+            View my eBird profile →
+        </a>
+    </p>
+</main>
+
+</div> <script> fetch("bird-data.json") .then(response => response.json()) .then(data => { const container = document.getElementById("sightings"); if (!data.length) { container.innerHTML = "<p>No recent sightings found.</p>"; return; } container.innerHTML = data.map(sighting => ` <div class="sighting"> <p class="species">${sighting.species}</p> <p class="details"> ${sighting.location} · ${sighting.date} </p> </div> `).join(""); }) .catch(error => { document.getElementById("sightings").innerHTML = "<p>Unable to load recent sightings.</p>"; console.error(error); }); </script> </body> </html>
