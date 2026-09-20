@@ -20,10 +20,13 @@ jobs:
         env:
           EBIRD_API_KEY: ${{ secrets.EBIRD_API_KEY }}
         run: |
-          curl -L \
+          curl -fL \
             -H "X-eBirdApiToken: $EBIRD_API_KEY" \
             "https://api.ebird.org/v2/data/obs/Mjg0MDM3OQ/recent?maxResults=20" \
             -o ebird-response.json
+
+          echo "eBird response:"
+          cat ebird-response.json
 
       - name: Create bird-data.json
         run: |
@@ -31,11 +34,19 @@ jobs:
           import json
 
           with open("ebird-response.json") as f:
-              observations = json.load(f)
+              data = json.load(f)
+
+          if not isinstance(data, list):
+              raise RuntimeError(
+                  f"Unexpected eBird response format: {type(data).__name__}"
+              )
 
           sightings = []
 
-          for obs in observations:
+          for obs in data:
+              if not isinstance(obs, dict):
+                  continue
+
               sightings.append({
                   "species": obs.get("comName", ""),
                   "location": obs.get("locName", ""),
