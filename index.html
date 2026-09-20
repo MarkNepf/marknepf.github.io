@@ -129,6 +129,14 @@
             font-size: 14px;
         }
 
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 22px;
+            }
+
         @media (max-width: 600px) {
             .container {
                 padding: 45px 22px;
@@ -156,11 +164,13 @@
 <div class="container">
 
     <header>
-        <h1>Mark Nepf</h1>
+    <img src="images/profile.jpg" alt="Mark Nepf" class="profile-photo">
 
-        <p class="subtitle">
-            PhD Candidate in Public Policy
-        </p>
+    <h1>Mark Nepf</h1>
+
+    <p class="subtitle">
+        PhD Candidate in Public Policy
+    </p>
 
         <nav>
             <a href="#publications">Publications</a>
