@@ -134,6 +134,22 @@ a {
     text-align: left;
     }
 
+.course {
+    margin-bottom: 50px;
+}
+
+.course h3 {
+    margin: 0 0 2px 0;
+}
+
+.course-meta {
+    margin: 0 0 8px 0;
+}
+
+.course-description {
+    margin: 0 0 12px 0;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 45px 22px;
