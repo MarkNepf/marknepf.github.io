@@ -158,6 +158,12 @@ a {
     margin-bottom: 45px;
 }
 
+.course-instructors {
+    font-size: 15px;
+    color: #666666;
+    margin: 0 0 8px 0;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 45px 22px;
