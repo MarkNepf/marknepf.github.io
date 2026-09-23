@@ -1,154 +1,112 @@
 <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Code</title>
+<title>Code | Mark Nepf</title>
 
-<style>
-    body {
-        margin: 0;
-        background: #ffffff;
-        color: #222222;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                     Helvetica, Arial, sans-serif;
-        line-height: 1.7;
-    }
-
-    .container {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 70px 30px;
-    }
-
-    header {
-        margin-bottom: 55px;
-    }
-
-    h1 {
-        font-size: 38px;
-        font-weight: 600;
-        letter-spacing: -1px;
-        margin: 0 0 8px 0;
-    }
-
-    section {
-        margin-bottom: 55px;
-    }
-
-    h2 {
-        font-size: 21px;
-        font-weight: 600;
-        margin: 0 0 20px 0;
-    }
-
-    p {
-        font-size: 16px;
-        margin-top: 0;
-    }
-
-    a {
-        color: #245f8f;
-    }
-
-    .vignette {
-        margin-bottom: 42px;
-    }
-
-    .vignette-title {
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 1.5;
-        margin: 0 0 7px 0;
-    }
-
-    .vignette-description {
-        margin: 0 0 14px 0;
-    }
-
-    .button {
-        display: inline-block;
-        padding: 4px 10px;
-        margin-right: 6px;
-        border: 1px solid #333;
-        border-radius: 3px;
-        text-decoration: none;
-        font-size: 0.85em;
-        color: #333;
-    }
-
-    .button:hover {
-        background-color: #333;
-        color: white;
-    }
-
-    .back {
-        margin-top: 50px;
-    }
-
-    @media (max-width: 600px) {
-        .container {
-            padding: 45px 22px;
-        }
-
-        h1 {
-            font-size: 32px;
-        }
-    }
-</style>
+<link rel="stylesheet" href="../style.css">
 
 </head> <body> <div class="container">
+<header>
+    <div class="header-content">
 
-    <header><h1>Code</h1></header>
+        <div class="header-text">
 
-    <p class="back"><a href="index.html">← Back to Home</a></p>
-    
-    <section>
-        <p>
-            These vignettes provide practical guides for using R to access,
-            organize, analyze, and visualize data. Each guide is designed to
-            be read alongside the accompanying code, with examples that can
-            be adapted for your own research and projects.
+            <h1>Mark Nepf</h1>
+
+            <p class="subtitle">PhD Candidate</p>
+
+            <p class="affiliation">
+                University of Washington<br>
+                Evans School of Public Policy &amp; Governance<br>
+                mnepf@uw.edu
+            </p>
+
+            <nav>
+                <a href="../MarkNepf_CV.pdf" target="_blank">CV</a>
+                <a href="../index.html#publications">Publications</a>
+                <a href="../teaching/">Teaching</a>
+                <a href="index.html">Code</a>
+                <a href="../r_vignettes/nepf_birds.html" target="_blank">Birding</a>
+            </nav>
+
+        </div>
+
+        <img src="../images/MarkNepf.png"
+             alt="Mark Nepf"
+             class="profile-photo">
+
+    </div>
+</header>
+
+
+<section>
+
+    <h2>Code</h2>
+
+    <p>
+        These vignettes provide practical guides for using R to access,
+        organize, analyze, and visualize data. Each guide is designed to
+        be read alongside the accompanying code, with examples that can
+        be adapted for your own research and projects.
+    </p>
+
+    <p>
+        The goal is to make common data and analytical workflows easier
+        to understand and reproduce, particularly for researchers working
+        with public and spatial data.
+    </p>
+
+</section>
+
+
+<section>
+
+    <h2>Vignettes</h2>
+
+    <div class="vignette">
+
+        <p class="vignette-title">
+            <a href="r_vignettes/nepf_census_data.html"
+               target="_blank"
+               class="button">
+                Accessing Census Data
+            </a>
         </p>
-    
-        <p>
-            The goal is to make common data and analytical workflows easier
-            to understand and reproduce, particularly for researchers working
-            with public and spatial data.
+
+        <p class="vignette-description">
+            A practical introduction to accessing U.S. Census Bureau data
+            directly through R using the <em>tidycensus</em> package.
+            This guide covers how to obtain and install a Census API key,
+            find appropriate Census variables and datasets, and download
+            Decennial Census and American Community Survey data. It also
+            introduces basic strategies for cleaning and reshaping Census
+            data, working with geographic data, and automating downloads
+            across multiple years and states.
         </p>
-    </section>
-    
-    
-    <section><h2>Vignettes</h2>
 
-        <div class="vignette">
+    </div>
 
-            <p class="vignette-title">
-                <a href="r_vignettes/nepf_census_data.html" target="_blank" class="button">Accessing Census Data</a>
-                </p>
 
-            <p class="vignette-description">
+    <div class="vignette">
 
-                A practical introduction to accessing U.S. Census Bureau data directly through R using the <em>tidycensus</em> package.
-                This guide covers how to obtain and install a Census API key, find appropriate Census variables and datasets, and download Decennial Census and American Community Survey data.
-                It also introduces basic strategies for cleaning and reshaping Census data, working with geographic data, and automating downloads across multiple years and states.
-                </p>
+        <p class="vignette-title">
+            <a href="r_vignettes/nepf_spatial_data.html"
+               target="_blank"
+               class="button">
+                Introduction to Spatial Data
+            </a>
+        </p>
 
-            </div>
+        <p class="vignette-description">
+            An introduction to working with vector spatial data in R using
+            the <em>sf</em> package. This guide explains the fundamentals
+            of spatial data and introduces Coordinate Reference Systems,
+            common spatial data file formats, and practical approaches for
+            importing spatial data. Examples using King County parks and
+            Link Light Rail data illustrate how spatial features are
+            represented, visualized, and analyzed.
+        </p>
 
-        <div class="vignette">
+    </div>
 
-            <p class="vignette-title">
-                <a href="r_vignettes/nepf_spatial_data.html" target="_blank" class="button">Introduction to Spatial Data</a>
-                </p>
+</section>
 
-            <p class="vignette-description">
-
-                An introduction to working with vector spatial data in R using the <em>sf</em> package.
-                This guide explains the fundamentals of spatial data and introduces Coordinate Reference Systems, common spatial data file formats, and practical approaches for importing spatial data.
-                Examples using King County parks and Link Light Rail data illustrate how spatial features are represented, visualized, and analyzed.
-                </p>
-
-            </div>
-
-        </section>
-
-    <p class="back"><a href="index.html">← Back to Home</a></p>
-    
-    </div> </body> </html>
+</div> </body> </html>
