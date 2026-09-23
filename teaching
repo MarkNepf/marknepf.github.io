@@ -1,0 +1,234 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching | Mark Nepf</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #ffffff;
+        color: #222222;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+    }
+
+    .container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 70px 30px;
+    }
+
+    header {
+        margin-bottom: 60px;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .header-text {
+        flex: 1;
+    }
+
+    h1 {
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        margin: 0 0 8px 0;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        color: #666666;
+        margin: 0;
+    }
+
+    .affiliation {
+        font-size: 16px;
+        color: #666666;
+        margin: 0;
+    }
+
+    nav {
+        margin-top: 28px;
+    }
+
+    nav a {
+        margin-right: 24px;
+        color: #245f8f;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .profile-photo {
+        width: 240px;
+        height: auto;
+        border-radius: 4px;
+        flex-shrink: 0;
+    }
+
+    section {
+        margin-bottom: 60px;
+    }
+
+    h2 {
+        font-size: 21px;
+        font-weight: 600;
+        margin: 0 0 28px 0;
+    }
+
+    h3 {
+        font-size: 19px;
+        font-weight: 600;
+        margin: 0 0 4px 0;
+    }
+
+    p {
+        font-size: 16px;
+        margin-top: 0;
+    }
+
+    .course {
+        margin-bottom: 42px;
+    }
+
+    .course-meta {
+        color: #666666;
+        font-size: 16px;
+        margin: 0 0 10px 0;
+    }
+
+    .course-description {
+        margin: 0 0 12px 0;
+    }
+
+    a {
+        color: #245f8f;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 4px 10px;
+        margin-right: 6px;
+        border: 1px solid #333;
+        border-radius: 3px;
+        text-decoration: none;
+        font-size: 0.85em;
+        color: #333;
+    }
+
+    .button:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 45px 22px;
+        }
+
+        .header-content {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 180px;
+        }
+
+        h1 {
+            font-size: 34px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin-bottom: 8px;
+            margin-right: 18px;
+        }
+    }
+</style>
+
+</head> <body> <div class="container">
+<header>
+    <div class="header-content">
+
+        <div class="header-text">
+            <h1>Mark Nepf</h1>
+
+            <p class="subtitle">PhD Candidate</p>
+
+            <p class="affiliation">
+                University of Washington<br>
+                Evans School of Public Policy &amp; Governance<br>
+                mnepf@uw.edu
+            </p>
+
+            <nav>
+                <a href="MarkNepf_CV.pdf" target="_blank">CV</a>
+                <a href="index.html#publications">Publications</a>
+                <a href="teaching.html">Teaching</a>
+                <a href="r_vignettes.html" target="_blank">Code</a>
+                <a href="r_vignettes/nepf_birds.html" target="_blank">Birding</a>
+            </nav>
+        </div>
+
+        <img src="images/MarkNepf.png"
+             alt="Mark Nepf"
+             class="profile-photo">
+    </div>
+</header>
+
+
+<section>
+
+    <h2>Teaching</h2>
+
+
+    <!-- 2026 -->
+
+    <div class="course">
+
+        <h3>COURSE NAME</h3>
+
+        <p class="course-meta">
+            University of Washington &middot; Spring 2026
+        </p>
+
+        <p class="course-description">
+            Course description goes here. Describe the course,
+            your role, and the topics or skills covered.
+        </p>
+
+        <a href="#" class="button">Syllabus</a>
+
+    </div>
+
+
+    <!-- 2025 -->
+
+    <div class="course">
+
+        <h3>COURSE NAME</h3>
+
+        <p class="course-meta">
+            University of Washington &middot; Fall 2025
+        </p>
+
+        <p class="course-description">
+            Course description goes here.
+        </p>
+
+        <a href="#" class="button">Syllabus</a>
+
+    </div>
+
+
+</section>
+
+</div> </body> </html>
