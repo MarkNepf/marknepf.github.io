@@ -224,17 +224,22 @@ a {
 }
 
 .birding-photos figcaption {
+    position: relative;
+    z-index: 20;
     margin-top: 6px;
+    padding: 3px 0;
     font-size: 14px;
     color: #666666;
     line-height: 1.5;
     transition: transform 0.25s ease;
     transform-origin: left top;
+    background: #ffffff;
 }
 
 .birding-photos figure:hover figcaption {
     transform: scale(1.25);
 }
+
 
 
 /* Mobile */
