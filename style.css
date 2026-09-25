@@ -205,20 +205,22 @@ a {
 
 .birding-photos figure {
     margin: 0;
-    **transition: transform 0.25s ease;**
+    position: relative;
 }
-
-**.birding-photos figure:hover {
-    transform: scale(1.4);
-    z-index: 10;
-}**
 
 .birding-photos img {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 4px;
-    **cursor: zoom-in;**
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
+}
+
+.birding-photos img:hover {
+    transform: scale(1.4);
+    position: relative;
+    z-index: 10;
 }
 
 .birding-photos figcaption {
@@ -226,6 +228,12 @@ a {
     font-size: 14px;
     color: #666666;
     line-height: 1.5;
+    transition: transform 0.25s ease;
+    transform-origin: left top;
+}
+
+.birding-photos figure:hover figcaption {
+    transform: scale(1.25);
 }
 
 
