@@ -205,18 +205,20 @@ a {
 
 .birding-photos figure {
     margin: 0;
+    **transition: transform 0.25s ease;**
 }
+
+**.birding-photos figure:hover {
+    transform: scale(1.4);
+    z-index: 10;
+}**
 
 .birding-photos img {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 4px;
-    transition: transform 0.25s ease;
-}
-
-.birding-photos img:hover {
-    transform: scale(1.15);
+    **cursor: zoom-in;**
 }
 
 .birding-photos figcaption {
