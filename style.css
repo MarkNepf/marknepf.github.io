@@ -257,4 +257,17 @@ a {
     .birding-photos {
         grid-template-columns: 1fr;
     }
+
+    /* No bird-photo zoom on mobile */
+    .birding-photos img {
+        cursor: default;
+        transition: none;
+    }
+
+    .birding-photos img:hover {
+        transform: none;
+        position: static;
+        z-index: auto;
+    }
 }
+
