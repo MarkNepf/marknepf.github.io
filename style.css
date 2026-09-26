@@ -231,6 +231,16 @@ a {
     text-align: center;
 }
 
+/* Contact */
+
+.contact p {
+    font-size: 20px;
+}
+
+.contact a {
+    font-size: 20px;
+}
+
 
 /* Mobile */
 
