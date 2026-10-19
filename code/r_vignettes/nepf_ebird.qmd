@@ -1,0 +1,309 @@
+---
+author: Mark Nepf (mnepf@uw.edu)
+title: "Accessing & Using eBird Data"
+format: html
+output-file: nepf_birds.html
+toc: true
+toc-depth: 3
+toc-expand: 1
+toc-title: "Table of Contents"
+css: ../styles.css  # `../` tells R to go up one level in folder
+fig-align: center
+fig-cap-location: top
+tbl-cap-location: top
+embed-resources: true
+editor: visual
+date: "`r Sys.time()`"
+highlight-style: github
+execute: 
+  eval: true
+---
+
+## Introduction
+
+This tutorial demonstrates how to access, clean, and visualize bird observation data from [eBird](https://ebird.org/home){target="_blank"} using R. Using observations downloaded from an eBird account, we will work through a reproducible workflow that transforms raw observation records into an interactive map.
+
+We will begin by importing and cleaning the data, selecting relevant variables, and formatting dates for analysis. Next, we will use the `rebird` package to access eBird's taxonomy through its Application Programming Interface (API), allowing us to supplement our observations with taxonomic information, including bird families and species codes. Finally, we will use the `leaflet` package to create an interactive map of our bird sightings, with clickable markers that display observation details and link to individual species pages on eBird.
+
+The observations used in this example come from my personal eBird account and were recorded using the [Merlin Bird ID](https://www.merlinbirds.org/){target="_blank"} phone app.
+
+### R Packages
+
+You will need the following R packages. If you have already installed them, skip the `install.packages` lines.
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+
+# install
+install.packages("usethis")  # installing eBird API key
+install.packages("tidyverse")  # cleaning data
+install.packages("janitor")  # cleaning data
+install.packages("rebird")  # eBird taxonomy data
+install.packages("leaflet")  # interactive map
+
+```
+
+```{r, message = FALSE, warning = FALSE}
+
+# load
+library(usethis)
+library(tidyverse)
+library(janitor)
+library(rebird)
+library(leaflet)
+
+```
+
+## eBird Data
+
+To begin, request your eBird data [here](https://ebird.org/downloadMyData){target="_blank"}. Alternatively, you can open the [eBird Homepage](https://ebird.org/home){target="_blank"} and navigate to **My eBird** and then **Download My Data**. Either way will bring you to the following page:
+
+![Figure 1: eBird Data Request Page](ebird_download.png){fig-align="center" fig-cap="eBird Data Request Page" width="75%"}
+
+::: text-center
+Select **Request My Observations**
+:::
+
+You will receive an email from eBird titled "Your eBird data are now available for download." Click the link provided and your data will automatically download. Find the download in your Downloads folder and extract the `MyEBirdData.csv` file to where you want to store it.
+
+### Cleaning
+
+We are now ready to bring these data into R using the `read.csv` function. Be sure to change the file path inside `read.csv` based on where you have stored your `MyEBirdData.csv` file.
+
+```{r}
+
+# load eBird data
+my_birds <- read.csv("MyEBirdData.csv")
+
+```
+
+```{r, echo = FALSE}
+
+# filter out observations you want to keep hidden
+my_birds <- my_birds |>
+  
+  filter(
+    
+    # remove identifiable locations
+    !Location %in% c("Rugglebug Clubhouse", "Ben", "Home"),
+    
+    # remove unclear species
+    !Common.Name %in% c("Larus sp.", "passerine sp.")
+    
+    )
+
+```
+
+eBird provides a number of variables with these data. We will work *Common.Name* and *Scientific.Name* (each bird's name and scientific name, respectively), as well as the location (*Location*), coordinates (*Latitude*/*Longitude*), and date (*Date*) that you spotted each bird.
+
+```{r}
+
+# clean eBird data
+my_birds <- my_birds |>
+  
+  # OPTIONAL: change variable names to snake_case for cleaner look
+  clean_names() |>
+  
+  # filter to desired variables
+  select(name = common_name,
+         sci_name = scientific_name,
+         location,
+         latitude,
+         longitude,
+         date)
+
+```
+
+::: {.callout-tip appearance="minimal" title="TIP"}
+Variables can be renamed within the `select` function. Above, we rename *common_name* and *scientific_name* by using the equals (`=`) operator.
+:::
+
+Next, we must format the *date* variable so that R recognizes it as a date, rather than a character string.
+
+```{r}
+
+head(my_birds$date)
+
+typeof(my_birds$date)
+
+```
+
+Notice that, while the dates are legible to us, R recognizes them as a character. The problem with this is that we cannot order our observations chronologically until R sees *date* as a true date.
+
+To fix this, we will use the `as.Date` function. Because the dates are stored as "YYYY-MM-DD" (i.e., four digit year, two digit month, two digit day), we will specify the `format` argument in `as.Date` with `"%Y-%m-%d"`. This tells R knows how to read them.
+
+```{r}
+
+my_birds <- my_birds |>
+  
+  mutate(date = as.Date(date, format = "%Y-%m-%d")) |>
+  
+  # arrange by date (newest sighting to oldest sighting)
+  arrange((desc(date)))
+
+```
+
+Notice below that the dates appear the same visually, but that R now interprets them as "double." This is what permits the `arrange` function to correctly order our observations by *date*.
+
+```{r}
+
+head(my_birds$date)
+
+typeof(my_birds$date)
+
+```
+
+## eBird Taxonomy
+
+Now that your eBird data are prepared, we can enrich those observations using the `rebird` package. While the previous section focused on importing and cleaning our personal bird observation, we now supplement these data with information from eBird's broader database.
+
+Specifically, we will use eBird's taxonomy to match our observations to standardized species names, species codes, and taxonomic classifications. We will also use each species' unique eBird species code to construct a direct link to its species page on the eBird website. These additions will help us explore our observations, learn more about the species we have encountered, and connect our data to eBird's broader resources.
+
+### eBird API
+
+The `rebird` package accesses your bird observation data through the eBird Application Programming Interface (API). An API is a way for one computer program to request data from another program. In this case, R sends a request to eBird and receives bird observation data directly. To make these requests, however, you will need an **eBird API Key**. API keys are free and are linked to your eBird account.
+
+You can obtain a free eBird API key [here](https://ebird.org/api/keygen){target="_blank"}. This will bring you to the following page:
+
+![Figure 2: eBird API Key Request Page](ebird_api.png){fig-align="center" fig-cap="eBird API Key Request Page"}
+
+Complete the form and click **Submit Request**. Your API key will be displayed on the next page.
+
+Copy your API key. We will now install it into our R environment using the `edit_r_environ` function (part of the `usethis` package).
+
+```{r, eval = FALSE}
+
+# open `.Renviron` file
+edit_r_environ()
+
+```
+
+Running `edit_r_environ` will open the `.Renviron` file, which stores environment variables that R reads when it starts. You can think of this file as a place to save settings that you want R to remember across sessions. In this case, you will use it to store your eBird API key so that R can access it automatically when making API requests.
+
+When the `.Renviron` file opens, add the following line (replacing "YOUR_KEY" with the API provided by eBird): `EBIRD_KEY='YOUR_KEY'`
+
+Save and close the `.Renviron` file, then restart R for the change to take effect. After restarting, you can confirm that this worked by running `Sys.getenv("EBIRD_KEY")`, which will print your eBird API key in the console.
+
+```{r, eval = FALSE}
+
+Sys.getenv("EBIRD_KEY")
+
+```
+
+::: {.callout-note appearance="minimal" title="NOTE"}
+The output from `Sys.getenv("EBIRD_KEY")` is not shown in this vignette, as API keys should not be shared.
+
+It is good practice to keep your API key private and not include it in files that you plan to publish or distribute. In other words, treat your eBird API key like a password. By storing your key in your `.Renviron` file, you allow R to access it through the EBIRD_KEY environment variable, so you can use the `rebird` package to make API requests without exposing your key directly in your code.
+:::
+
+### `rebird`
+
+Now that your API key is installed, you can use the `rebird` package to request taxonomy data. We will do this using the `ebirdtaxonomy` function, which loads eBird's full taxonomic reference table (nearly 20,000 observations).
+
+```{r}
+
+# eBird taxonomy
+taxonomy <- ebirdtaxonomy()
+
+```
+
+Because these data reflect all data maintained by eBird, we will first filter it to the birds that appear in our personal data (i.e., `my_birds`). Use the `filter` function and tell R to filter `taxonomy` down to the observations where *comName* (bird names in `taxonomy`) are also found in the *name* column of our data (`my_birds$name`).
+
+```{r}
+
+# filter eBird taxonomy to your birds
+taxonomy <- taxonomy |>
+  
+  filter(comName %in% my_birds$name)
+
+```
+
+Next, let's grab the specific variables that we want from `taxonomy`, which include *comName*, *speciesCode*, and *familyComName*. Here, too, we will rename these variables directly inside the `select` function.
+
+```{r}
+
+# filter to variables we want
+taxonomy <- taxonomy |>
+  
+  select(name = comName,
+         ebird_species_code = speciesCode,
+         fam_common_name = familyComName)
+
+```
+
+Finally, we will use the *ebird_species_code* variable to create bird-specific links to their eBird page. The species codes that are provided within `taxonomy` reflect how each species is internally referenced by eBird. For instance, the Black-capped Chickadee's species code is **bkcchi**.
+
+```{r}
+
+# black-capped chickadee species code
+taxonomy |> filter(name == "Black-capped Chickadee") |> pull(ebird_species_code)
+
+```
+
+Similarly, the Northern Flicker's species code is **norfli**.
+
+```{r}
+
+# northern flicker species code
+taxonomy |> filter(name == "Northern Flicker") |> pull(ebird_species_code)
+
+```
+
+These codes are useful because they allow us to construct direct links to individual species pages on eBird. The base URL - **https://ebird.org/species/** - is combined with each bird's unique species code to create its webpage. For example, the Black-capped Chickadee's page is located at [https://ebird.org/species/bkcchi](https://ebird.org/species/bkcchi){target="_blank"}, while the Northern Flicker's page is at [https://ebird.org/species/norfli](https://ebird.org/species/norfli){target="_blank"}.
+
+Because this pattern holds for every bird on eBird, we can use the `paste0` function to append each bird's species code to the base URL, generating a link to each bird's eBird page.
+
+```{r}
+  
+# create link to each species' eBird page
+taxonomy <- taxonomy |>
+  
+  mutate(ebird_url = paste0("https://ebird.org/species/", ebird_species_code))
+
+```
+
+And finally, we join these `taxonomy` data with our bird observations (`my_birds`).
+
+```{r}
+
+my_birds <- my_birds |> left_join(taxonomy, by = "name")
+
+```
+
+## Mapping
+
+Now that the data are cleaned and complete, we can visualize them on an interactive map using the `leaflet` package. `leaflet` makes it possible to pan, zoom, and explore geographic data in a web browser without needing to build a map from scratch.
+
+To create our map, we begin by passing `my_birds` to the `leaflet` function. We then add several layers to the map, each of which contributes a different element to the final visualization.
+
+First, `addProviderTiles("OpenStreetMap")` adds a background map using tiles from OpenStreetMap. These tiles provide geographic context, including roads, place names, and other features that help us interpret where our observations occurred.
+
+Next, `addMarkers` plots a marker for each bird observation. We use the *longitude* and *latitude* variables to determine where each marker appears on the map.
+
+We can also customize how these markers appear using the `makeIcon` function. Here, I use a bird icon using an image file I created. This file can be downloaded [here](https://github.com/MarkNepf/marknepf.github.io/blob/cad657b702be82a7624a35388ebc1b88a10aa63a/images/solid_bird.png){target="_blank"}.
+
+The `iconWidth`, `iconHeight`, `iconAnchorX`, and `iconAnchorY` arguments control the icon's size and the point that is anchored to the geographic coordinates. Here, we use a 32-by-32-pixel icon and anchor it near its center so that the marker indicates the observation location.
+
+Finally, we add a popup to each marker using the `popup` argument. When a user clicks a marker, the popup displays the bird's common name, scientific name, observation location, and date. We also include a link to the bird's species page on eBird, allowing users to explore additional information about each species.
+
+Together, these features turn our observation data into an interactive map that connects each bird to both its geographic location and its taxonomic information.
+
+```{r, message = FALSE, warning = FALSE}
+
+my_birds |>
+  leaflet() |>
+  addProviderTiles("OpenStreetMap") |>
+  addMarkers(lng = ~longitude,
+             lat = ~latitude,
+             icon = makeIcon(iconUrl = "solid_bird.png",
+                             iconWidth = 32,
+                             iconHeight = 32,
+                             iconAnchorX = 16,
+                             iconAnchorY = 16),
+             popup = paste0("<b>", my_birds$name, "</b><br>",
+                            "<i>", my_birds$sci_name, "</i><br>",
+                            my_birds$location, "<br>",
+                            format(my_birds$date, "%b %d, %Y"), "<br>",
+                            "<a href='", my_birds$ebird_url,
+                            "' target='_blank'>View on eBird</a>"))
+
+```
