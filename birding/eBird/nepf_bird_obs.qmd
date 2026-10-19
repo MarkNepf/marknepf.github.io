@@ -1,0 +1,183 @@
+---
+author: Mark Nepf (mnepf@uw.edu)
+title: "Recent Bird Observations"
+format: html
+output-file: nepf_bird_observations.html
+toc: true
+toc-depth: 3
+toc-expand: 1
+toc-title: "Table of Contents"
+css: ../styles.css  # `../` tells R to go up one level in folder
+fig-align: center
+fig-cap-location: top
+tbl-cap-location: top
+embed-resources: true
+editor: visual
+date: "`r Sys.time()`"
+highlight-style: github
+execute: 
+  eval: true
+---
+
+The bird observations shown here come from my personal [eBird](https://ebird.org/home){target="_blank"} account. Observations are recorded via the [Merlin Bird ID](https://www.merlinbirds.org/){target="_blank"} phone app. The links embedded in the **Name** column point to the corresponding species' page on eBird, while the map shows the geographic location where the species was spotted.
+
+For a step-by-step summary of how this file was made, see my [Working with eBird Data](https://marknepf.github.io/code/r_vignettes/nepf_ebird.html){target="_blank"} vignette.
+
+<!-- ### R Packages -->
+
+<!-- You will need the following R packages. If you have already installed them, skip the `install.packages` lines. -->
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, eval = FALSE}
+
+# install
+install.packages("tidyverse")  # cleaning data
+install.packages("janitor")  # cleaning data
+install.packages("rebird")  # REBIRD
+install.packages("leaflet")  # interactive map
+install.packages("gt")  # creating tables
+
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+# load
+library(tidyverse)
+library(janitor)
+library(rebird)
+library(leaflet)
+library(gt)
+
+```
+
+### Interactive Map
+
+Click on a bird below to see who's there!
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+
+# eBird taxonomy
+taxonomy <- ebirdtaxonomy()
+
+# my eBirds
+birds <- read.csv("MyEBirdData.csv") |>
+  clean_names() |>
+  
+  mutate(spot_date = as.Date(date, format = "%Y-%m-%d")) |>
+
+  filter(
+    
+    # remove identifiable locations
+    !location %in% c("Rugglebug Clubhouse", "Ben", "Home"),
+    
+    # remove unclear species
+    !common_name %in% c("Larus sp.", "passerine sp."),
+    
+    # filter observations before Katherine (LI Thanksgiving trip)
+    spot_date >= as.Date("2023-11-01")
+    
+    ) |>
+  
+  # arrange by date seen (newest to oldest)
+  arrange((desc(spot_date))) |>
+  
+  # keeps only the first occurrence of each unique species (based on current order of data)
+  distinct(common_name, .keep_all = TRUE) |>
+  
+  #slice_head(n = 25) |>
+  select(name = common_name,
+         sci_name = scientific_name,
+         location,
+         latitude,
+         longitude,
+         spot_date)
+
+
+# Find my birds in eBird's taxonomy
+ebirds <- taxonomy |>
+  filter(comName %in% birds$name) |>
+  select(name = comName,
+         ebird_species_code = speciesCode,
+         order,
+         fam_common_name= familyComName,
+         fam_sci_name = familySciName) |>
+  
+  mutate(ebird_url = paste0("https://ebird.org/species/", ebird_species_code),
+         .before = 1)
+
+
+marks_birds <- ebirds |>
+  left_join(birds, by = "name") |>
+  
+  # arrange by `spot_date` (needs to happen before `gt`)
+  arrange(desc(spot_date))
+
+
+marks_birds |>
+  leaflet() |>
+  addProviderTiles("OpenStreetMap") |>
+  addMarkers(lng = ~longitude,
+             lat = ~latitude,
+             icon = makeIcon(iconUrl = "solid_bird.png",
+                             iconWidth = 32,
+                             iconHeight = 32,
+                             iconAnchorX = 16,
+                             iconAnchorY = 16),
+             popup = paste0("<b>", marks_birds$name, "</b><br>",
+                            "<i>", marks_birds$sci_name, "</i><br>",
+                            marks_birds$location, "<br>",
+                            format(marks_birds$spot_date, "%b %d, %Y"), "<br>",
+                            "<a href='", marks_birds$ebird_url,
+                            "' target='_blank'>View on eBird</a>"))
+
+
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+marks_birds |>
+  
+  select(ebird_url, sci_name, name, spot_date, latitude, longitude, location, fam_common_name) |>
+  
+  mutate(sci_name = gsub(" ", "<br>", sci_name),
+         spot_date = gsub(" ", "<br>", format(spot_date, "%b %Y")),
+         location_link = sprintf('<a href="https://www.google.com/maps?q=%s,%s" target="_blank">%s</a>',
+                                 latitude, longitude, location)) |>
+
+  gt() |>
+  
+  tab_options(column_labels.font.weight = "bold",  # column label weight
+              column_labels.padding.horizontal = px(20),  # add space between column names
+              data_row.padding.horizontal = px(20)) |>  # add space between cells
+  
+  tab_style(style = cell_text(align = "center",
+                              v_align = "middle"),
+            locations = cells_column_labels()) |>  # column labels
+  
+  tab_style(style = cell_text(align = "left",
+                              v_align = "middle"),
+            locations = cells_column_labels(columns = ebird_url)) |>
+  
+  tab_style(style = cell_text(align = "left",
+                              style = "italic"),
+            locations = cells_body(columns = sci_name)) |>  # cells
+  
+  tab_style(style = cell_text(align = "center"),
+            locations = cells_body(columns = c(sci_name, spot_date, location_link, fam_common_name))) |>
+  
+  cols_label(ebird_url = "Name",
+             sci_name = "Scientific Name",
+             spot_date = "Date",
+             location_link = "Location",
+             fam_common_name = "Family") |>
+  
+  # ensure each `sci_name` is two lines
+  fmt_markdown(columns = c(sci_name, spot_date, location_link)) |>
+  
+  fmt_url(columns = ebird_url,
+          label = marks_birds$name,
+          color = "blue") |>
+
+  cols_hide(columns = c(latitude, longitude, location, name))
+
+```
