@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mark Nepf (mnepf@uw.edu)">
-<meta name="dcterms.date" content="2026-10-19">
+<meta name="dcterms.date" content="2026-10-22">
 
 <title>Recent Bird Observations</title>
 <style>
@@ -8264,7 +8264,7 @@ function asArray(value) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 19, 2026</p>
+      <p class="date">October 22, 2026</p>
     </div>
   </div>
   
@@ -8275,7 +8275,19 @@ function asArray(value) {
 </header>
 
 <p>The bird observations shown here come from my personal <a href="https://ebird.org/home" target="_blank">eBird</a> account. Observations are recorded via the <a href="https://www.merlinbirds.org/" target="_blank">Merlin Bird ID</a> phone app. The links embedded in the <strong>Name</strong> column point to the corresponding species’ page on eBird, while the map shows the geographic location where the species was spotted.</p>
-<p>For a step-by-step summary of how this file was made, see my <a href="https://marknepf.github.io/code/r_vignettes/nepf_ebird.html" target="_blank">Working with eBird Data</a> vignette.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a step-by-step summary of how these data were prepared, see my <a href="https://marknepf.github.io/code/r_vignettes/nepf_ebird.html" target="_blank">Working with eBird Data</a> vignette.</p>
+</div>
+</div>
 <!-- ### R Packages -->
 <!-- You will need the following R packages. If you have already installed them, skip the `install.packages` lines. -->
 <section id="interactive-map" class="level3">
@@ -8283,27 +8295,27 @@ function asArray(value) {
 <p>Click on a bird below to see who’s there!</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-c8c0e5b6a9479b493505" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-c8c0e5b6a9479b493505">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[47.659825,47.657273,47.531619,47.5295029,47.5295029,47.662003,47.657273,47.657273,47.657273,47.5891498,47.5891498,47.5891498,47.5891498,47.666793,47.65767,47.678319,47.8525399,47.657273,47.6501824,47.592269,47.653446,48.257717,48.418609,47.807425,47.807425,47.37107,47.678964,47.659865,47.820339,47.657517,33.176737,39.181458,39.182686,44.402554,39.182686,41.750789,47.65544,48.2245,47.657273,47.657273,45.564006,45.564006,45.382548,47.57421,47.661431,47.657273,47.652133,47.652133,47.704179,45.461179,45.461179,40.903328,41.042562,41.042562,41.042562,41.042562,41.042562,47.609141,47.652133,47.652133,42.36819,42.36819,42.368242,42.351865,47.657273,47.072685,47.077527,47.677419,30.25738,47.678319,52.821913,52.821913,40.962712,40.962712,40.962712,45.211273,45.214169,47.681364,47.674235,49.301889,48.485133,40.963899],[-122.30959,-122.288064,-122.035315,-122.039512,-122.039512,-122.284661,-122.288064,-122.288064,-122.288064,-122.1867639,-122.1867639,-122.1867639,-122.1867639,-122.290947,-122.29684,-122.256595,-121.9821051,-122.288064,-122.3052358,-120.662885,-122.323648,-124.35793,-123.366521,-122.388389,-122.388389,-122.142843,-122.207869,-122.289031,-122.306115,-122.114896,-117.347185,-122.016026,-122.035009,-123.338921,-122.035009,-124.182108,-122.308834,-122.465798,-122.288064,-122.288064,-122.311242,-122.311242,-122.830056,-122.417639,-122.2823,-122.288064,-122.300579,-122.300579,-122.332315,-123.968726,-123.968726,-73.22638600000001,-72.343653,-72.343653,-72.343653,-72.343653,-72.343653,-122.179817,-122.300579,-122.300579,-71.143762,-71.143762,-71.145599,-71.05490399999999,-122.288064,-122.712877,-122.709976,-122.253799,-97.74031600000001,-122.256595,-126.830291,-126.830291,-73.143291,-73.143291,-73.143291,-123.957366,-123.972109,-122.2485,-122.253327,-123.142319,-121.597921,-73.034768],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAzUExURQAAAOsAAOwAAO4AAO4AAOwAAO4AAO8AAO4AAO8AAO8AAO0AAO8AAO0AAO8AAO8AAO4AAJhF6PgAAAARdFJOUwBAUP+/YM8g7zAQcK+Aj5/fkAOqDQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAjhJREFUaEPtl9u2qyAMRVUocqv6/1+7A6QIShWhjHMemE+a0a6QkAQcOp1Op9P5TxgnfGjERAjFxza8CCFsxpcWQASEcIFvDbAOWnoYrQPCJb7/HOEcEIbvP0eig2a15B0QhZYKZka0Om4nR31C6jvubXX4EpU9tUZLdSnNKERokI4FbQBHUzkalQAfhkKDQaOtGB+CYXUusBEc1duwopDDutjLCKjuN7mhErKALcxRfZLc6Al4g9cwrihJUqhV61U9mbbBPjsYFOdrb4YwSZOPl+5+pZSzEN9dHpMEQJ7k3g0maxYRrYVSxraNm5Vwpt8XLRNVjcME4duB4+LGPaodThcl7goh6CwPNJ53vNpfTQd9zlY1ZtZYMBw8oCo+kiYEdVy/c5tHYhsgTXKY0Q5aUelaHrVgYhsgB2KQzD3ObipGPKnUCw8uhkSETw88c1k5AR4+B+gJ6MdnpErJVOip05ER/5dPPPYQSMSp0y0lV4KkEk3rP8+QIdUOXyib4p+izKAoACA7huLbQKaHilMoWa1Hqm7G56FzpnQHHMmpEQFjsIbTXD7xvIlD7vX9EVrEvf5alaD7La7bgH+vvz07xw7c69PG+kvb/PAX/rKMW31aM4Du9Wld+97ps9ov2kt9rnOvoF+50Od6qlX/qp91M8/hrM/0j6QtB322VGc8JtKnV19CZQT6DdQD/a2F+q5Pf1CLKZw+X5ssHrD6XLVZPGD0t3byRp81lAcHbeU7nU6n02nIMPwBLdIcorB6hocAAAAASUVORK5CYII=","index":0},"iconWidth":32,"iconHeight":32,"iconAnchorX":16,"iconAnchorY":16},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b>Cooper's Hawk<\/b><br><i>Astur cooperii<\/i><br>University of Washington<br>Oct 05, 2026<br><a href='https://ebird.org/species/coohaw' target='_blank'>View on eBird<\/a>","<b>Bewick's Wren<\/b><br><i>Thryomanes bewickii<\/i><br>Yeslar Swamp<br>Oct 05, 2026<br><a href='https://ebird.org/species/bewwre' target='_blank'>View on eBird<\/a>","<b>Chestnut-backed Chickadee<\/b><br><i>Poecile rufescens<\/i><br>Issaquah<br>Oct 04, 2026<br><a href='https://ebird.org/species/chbchi' target='_blank'>View on eBird<\/a>","<b>Red-breasted Nuthatch<\/b><br><i>Sitta canadensis<\/i><br>Issaquah Salmon Hatchery<br>Oct 04, 2026<br><a href='https://ebird.org/species/rebnut' target='_blank'>View on eBird<\/a>","<b>European Starling<\/b><br><i>Sturnus vulgaris<\/i><br>Issaquah Salmon Hatchery<br>Oct 04, 2026<br><a href='https://ebird.org/species/eursta' target='_blank'>View on eBird<\/a>","<b>Cedar Waxwing<\/b><br><i>Bombycilla cedrorum<\/i><br>Seattle Children’s<br>Oct 03, 2026<br><a href='https://ebird.org/species/cedwax' target='_blank'>View on eBird<\/a>","<b>American Coot<\/b><br><i>Fulica americana<\/i><br>Yeslar Swamp<br>Oct 01, 2026<br><a href='https://ebird.org/species/y00475' target='_blank'>View on eBird<\/a>","<b>Killdeer<\/b><br><i>Charadrius vociferus<\/i><br>Yeslar Swamp<br>Oct 01, 2026<br><a href='https://ebird.org/species/killde' target='_blank'>View on eBird<\/a>","<b>Marsh Wren<\/b><br><i>Cistothorus palustris<\/i><br>Yeslar Swamp<br>Oct 01, 2026<br><a href='https://ebird.org/species/marwre' target='_blank'>View on eBird<\/a>","<b>Anna's Hummingbird<\/b><br><i>Calypte anna<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/annhum' target='_blank'>View on eBird<\/a>","<b>Golden-crowned Kinglet<\/b><br><i>Regulus satrapa<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/gockin' target='_blank'>View on eBird<\/a>","<b>Brown Creeper<\/b><br><i>Certhia americana<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/brncre' target='_blank'>View on eBird<\/a>","<b>Yellow-rumped Warbler<\/b><br><i>Setophaga coronata<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/yerwar' target='_blank'>View on eBird<\/a>","<b>Northern Flicker<\/b><br><i>Colaptes auratus<\/i><br>Calvary Cemetery, Seattle<br>Sep 24, 2026<br><a href='https://ebird.org/species/norfli' target='_blank'>View on eBird<\/a>","<b>Savannah Sparrow<\/b><br><i>Passerculus sandwichensis<\/i><br>Union Bay<br>Sep 16, 2026<br><a href='https://ebird.org/species/savspa' target='_blank'>View on eBird<\/a>","<b>Great Blue Heron<\/b><br><i>Ardea herodias<\/i><br>Magnuson Park<br>Sep 15, 2026<br><a href='https://ebird.org/species/grbher3' target='_blank'>View on eBird<\/a>","<b>Vaux's Swift<\/b><br><i>Chaetura vauxi<\/i><br>Monroe--Frank Wagner Elementary<br>Sep 10, 2026<br><a href='https://ebird.org/species/vauswi' target='_blank'>View on eBird<\/a>","<b>Common Yellowthroat<\/b><br><i>Geothlypis trichas<\/i><br>Yeslar Swamp<br>Sep 03, 2026<br><a href='https://ebird.org/species/comyel' target='_blank'>View on eBird<\/a>","<b>American Crow<\/b><br><i>Corvus brachyrhynchos<\/i><br>Montlake Triangle<br>Jul 29, 2026<br><a href='https://ebird.org/species/amecro' target='_blank'>View on eBird<\/a>","<b>Veery<\/b><br><i>Catharus fuscescens<\/i><br>Blackbird Island<br>Jun 28, 2026<br><a href='https://ebird.org/species/veery' target='_blank'>View on eBird<\/a>","<b>Mallard<\/b><br><i>Anas platyrhynchos<\/i><br>Ivars<br>Jun 19, 2026<br><a href='https://ebird.org/species/mallar3' target='_blank'>View on eBird<\/a>","<b>Cliff Swallow<\/b><br><i>Petrochelidon pyrrhonota<\/i><br>Clallam Bay<br>Jun 18, 2026<br><a href='https://ebird.org/species/cliswa' target='_blank'>View on eBird<\/a>","<b>Rock Pigeon<\/b><br><i>Columba livia<\/i><br>Victoria<br>Jun 13, 2026<br><a href='https://ebird.org/species/rocpig' target='_blank'>View on eBird<\/a>","<b>Tree Swallow<\/b><br><i>Tachycineta bicolor<\/i><br>Edmonds Marsh<br>Jun 06, 2026<br><a href='https://ebird.org/species/treswa' target='_blank'>View on eBird<\/a>","<b>Violet-green Swallow<\/b><br><i>Tachycineta thalassina<\/i><br>Edmonds Marsh<br>Jun 06, 2026<br><a href='https://ebird.org/species/vigswa' target='_blank'>View on eBird<\/a>","<b>Red-breasted Sapsucker<\/b><br><i>Sphyrapicus ruber<\/i><br>Soos Creel Trail<br>May 31, 2026<br><a href='https://ebird.org/species/rebsap' target='_blank'>View on eBird<\/a>","<b>Red-winged Blackbird<\/b><br><i>Agelaius phoeniceus<\/i><br>Kirkland<br>May 30, 2026<br><a href='https://ebird.org/species/rewbla' target='_blank'>View on eBird<\/a>","<b>American Robin<\/b><br><i>Turdus migratorius<\/i><br>Laurelhurst<br>May 18, 2026<br><a href='https://ebird.org/species/amerob' target='_blank'>View on eBird<\/a>","<b>Hutton's Vireo<\/b><br><i>Vireo huttoni<\/i><br>Scriber Lake Park<br>May 10, 2026<br><a href='https://ebird.org/species/hutvir' target='_blank'>View on eBird<\/a>","<b>Canada Goose<\/b><br><i>Branta canadensis<\/i><br>Marymoor Park<br>Apr 11, 2026<br><a href='https://ebird.org/species/cangoo' target='_blank'>View on eBird<\/a>","<b>Scaly-breasted Munia<\/b><br><i>Lonchura punctulata<\/i><br>Buena Vista Lagoon<br>Apr 04, 2026<br><a href='https://ebird.org/species/nutman' target='_blank'>View on eBird<\/a>","<b>Greater White-fronted Goose<\/b><br><i>Anser albifrons<\/i><br>Colusa NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/gwfgoo' target='_blank'>View on eBird<\/a>","<b>American Avocet<\/b><br><i>Recurvirostra americana<\/i><br>Colusa NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/ameavo' target='_blank'>View on eBird<\/a>","<b>Western Bluebird<\/b><br><i>Sialia mexicana<\/i><br>William Finney NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/wesblu' target='_blank'>View on eBird<\/a>","<b>Lesser Goldfinch<\/b><br><i>Spinus psaltria<\/i><br>Colusa NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/lesgol' target='_blank'>View on eBird<\/a>","<b>Brewer's Blackbird<\/b><br><i>Euphagus cyanocephalus<\/i><br>Best Western Plus<br>Mar 17, 2026<br><a href='https://ebird.org/species/brebla' target='_blank'>View on eBird<\/a>","<b>Ring-billed Gull<\/b><br><i>Larus delawarensis<\/i><br>University of Washington<br>Feb 19, 2026<br><a href='https://ebird.org/species/ribgul' target='_blank'>View on eBird<\/a>","<b>Greater Scaup<\/b><br><i>Aythya marila<\/i><br>Camano Island<br>Feb 01, 2026<br><a href='https://ebird.org/species/gresca' target='_blank'>View on eBird<\/a>","<b>Green-winged Teal<\/b><br><i>Anas crecca<\/i><br>Yeslar Swamp<br>Jan 17, 2026<br><a href='https://ebird.org/species/gnwtea' target='_blank'>View on eBird<\/a>","<b>Hooded Merganser<\/b><br><i>Lophodytes cucullatus<\/i><br>Yeslar Swamp<br>Jan 17, 2026<br><a href='https://ebird.org/species/hoomer' target='_blank'>View on eBird<\/a>","<b>Golden Eagle<\/b><br><i>Aquila chrysaetos<\/i><br>Steigerwald Lake National Wildlife Refuge<br>Dec 31, 2025<br><a href='https://ebird.org/species/goleag' target='_blank'>View on eBird<\/a>","<b>Western Meadowlark<\/b><br><i>Sturnella neglecta<\/i><br>Steigerwald Lake National Wildlife Refuge<br>Dec 31, 2025<br><a href='https://ebird.org/species/wesmea' target='_blank'>View on eBird<\/a>","<b>Northern Pintail<\/b><br><i>Anas acuta<\/i><br>Tualatin National Wildlife Refuge<br>Dec 27, 2025<br><a href='https://ebird.org/species/norpin' target='_blank'>View on eBird<\/a>","<b>Harlequin Duck<\/b><br><i>Histrionicus histrionicus<\/i><br>Constellation Park<br>Dec 20, 2025<br><a href='https://ebird.org/species/harduc' target='_blank'>View on eBird<\/a>","<b>Barred Owl<\/b><br><i>Strix varia<\/i><br>Seattle Children’s<br>Dec 18, 2025<br><a href='https://ebird.org/species/brdowl' target='_blank'>View on eBird<\/a>","<b>American Wigeon<\/b><br><i>Mareca americana<\/i><br>Yeslar Swamp<br>Dec 13, 2025<br><a href='https://ebird.org/species/amewig' target='_blank'>View on eBird<\/a>","<b>Green Heron<\/b><br><i>Butorides virescens<\/i><br>Union Bay<br>Aug 12, 2025<br><a href='https://ebird.org/species/grnher' target='_blank'>View on eBird<\/a>","<b>Belted Kingfisher<\/b><br><i>Megaceryle alcyon<\/i><br>Union Bay<br>Aug 12, 2025<br><a href='https://ebird.org/species/belkin1' target='_blank'>View on eBird<\/a>","<b>Dark-eyed Junco<\/b><br><i>Junco hyemalis<\/i><br>NW Outpatient Center<br>Aug 11, 2025<br><a href='https://ebird.org/species/daejun' target='_blank'>View on eBird<\/a>","<b>Pigeon Guillemot<\/b><br><i>Cepphus columba<\/i><br>Oceanside Beach<br>Jul 28, 2025<br><a href='https://ebird.org/species/piggui' target='_blank'>View on eBird<\/a>","<b>Western Gull<\/b><br><i>Larus occidentalis<\/i><br>Oceanside Beach<br>Jul 28, 2025<br><a href='https://ebird.org/species/wesgul' target='_blank'>View on eBird<\/a>","<b>Forster's Tern<\/b><br><i>Sterna forsteri<\/i><br>Nissequogue River<br>Jul 13, 2025<br><a href='https://ebird.org/species/forter' target='_blank'>View on eBird<\/a>","<b>Mourning Dove<\/b><br><i>Zenaida macroura<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/moudov' target='_blank'>View on eBird<\/a>","<b>Piping Plover<\/b><br><i>Charadrius melodus<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/pipplo' target='_blank'>View on eBird<\/a>","<b>American Herring Gull<\/b><br><i>Larus smithsonianus<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/amhgul1' target='_blank'>View on eBird<\/a>","<b>Least Tern<\/b><br><i>Sternula antillarum<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/leater1' target='_blank'>View on eBird<\/a>","<b>Prairie Warbler<\/b><br><i>Setophaga discolor<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/prawar' target='_blank'>View on eBird<\/a>","<b>Spotted Towhee<\/b><br><i>Pipilo maculatus<\/i><br>Bellevue Botanical Garden<br>Jun 21, 2025<br><a href='https://ebird.org/species/spotow' target='_blank'>View on eBird<\/a>","<b>Wood Duck<\/b><br><i>Aix sponsa<\/i><br>Union Bay<br>Jun 18, 2025<br><a href='https://ebird.org/species/wooduc' target='_blank'>View on eBird<\/a>","<b>Purple Martin<\/b><br><i>Progne subis<\/i><br>Union Bay<br>Jun 12, 2025<br><a href='https://ebird.org/species/purmar' target='_blank'>View on eBird<\/a>","<b>Wild Turkey<\/b><br><i>Meleagris gallopavo<\/i><br>Mount Auburn Cemetery<br>May 24, 2025<br><a href='https://ebird.org/species/wiltur' target='_blank'>View on eBird<\/a>","<b>Chimney Swift<\/b><br><i>Chaetura pelagica<\/i><br>Mount Auburn Cemetery<br>May 24, 2025<br><a href='https://ebird.org/species/chiswi' target='_blank'>View on eBird<\/a>","<b>Eastern Kingbird<\/b><br><i>Tyrannus tyrannus<\/i><br>Mount Auburn Cemetery<br>May 24, 2025<br><a href='https://ebird.org/species/easkin' target='_blank'>View on eBird<\/a>","<b>Rock Pigeon (Feral Pigeon)<\/b><br><i>Columba livia (Feral Pigeon)<\/i><br>South Station<br>May 23, 2025<br><a href='https://ebird.org/species/rocpig1' target='_blank'>View on eBird<\/a>","<b>Gadwall<\/b><br><i>Mareca strepera<\/i><br>Yeslar Swamp<br>May 18, 2025<br><a href='https://ebird.org/species/gadwal' target='_blank'>View on eBird<\/a>","<b>Cinnamon Teal<\/b><br><i>Spatula cyanoptera<\/i><br>Billy Frank Jr Wildlife Refuge<br>May 11, 2025<br><a href='https://ebird.org/species/cintea' target='_blank'>View on eBird<\/a>","<b>Rufous Hummingbird<\/b><br><i>Selasphorus rufus<\/i><br>Billy Frank Jr Wildlife Refuge<br>May 11, 2025<br><a href='https://ebird.org/species/rufhum' target='_blank'>View on eBird<\/a>","<b>Pied-billed Grebe<\/b><br><i>Podilymbus podiceps<\/i><br>Magnuson Park<br>Apr 12, 2025<br><a href='https://ebird.org/species/pibgre' target='_blank'>View on eBird<\/a>","<b>Hermit Thrush<\/b><br><i>Catharus guttatus<\/i><br>Lady Bird Lake<br>Nov 03, 2024<br><a href='https://ebird.org/species/herthr' target='_blank'>View on eBird<\/a>","<b>Golden-crowned Sparrow<\/b><br><i>Zonotrichia atricapilla<\/i><br>Magnuson Park<br>Oct 12, 2024<br><a href='https://ebird.org/species/gocspa' target='_blank'>View on eBird<\/a>","<b>American Dipper<\/b><br><i>Cinclus mexicanus<\/i><br>Dean River<br>Sep 02, 2024<br><a href='https://ebird.org/species/amedip' target='_blank'>View on eBird<\/a>","<b>Common Merganser<\/b><br><i>Mergus merganser<\/i><br>Dean River<br>Aug 31, 2024<br><a href='https://ebird.org/species/commer' target='_blank'>View on eBird<\/a>","<b>Spotted Sandpiper<\/b><br><i>Actitis macularius<\/i><br>Flax Pond<br>Aug 14, 2024<br><a href='https://ebird.org/species/sposan' target='_blank'>View on eBird<\/a>","<b>Great Egret<\/b><br><i>Ardea alba<\/i><br>Flax Pond<br>Aug 14, 2024<br><a href='https://ebird.org/species/greegr' target='_blank'>View on eBird<\/a>","<b>Barn Swallow<\/b><br><i>Hirundo rustica<\/i><br>Flax Pond<br>Aug 14, 2024<br><a href='https://ebird.org/species/barswa' target='_blank'>View on eBird<\/a>","<b>Turkey Vulture<\/b><br><i>Cathartes aura<\/i><br>Nestucca River<br>Aug 03, 2024<br><a href='https://ebird.org/species/turvul' target='_blank'>View on eBird<\/a>","<b>Brown Pelican<\/b><br><i>Pelecanus occidentalis<\/i><br>Pacific City Beach<br>Aug 02, 2024<br><a href='https://ebird.org/species/brnpel' target='_blank'>View on eBird<\/a>","<b>Osprey<\/b><br><i>Pandion haliaetus<\/i><br>Magnuson Park<br>Apr 13, 2024<br><a href='https://ebird.org/species/osprey' target='_blank'>View on eBird<\/a>","<b>Ruby-crowned Kinglet<\/b><br><i>Corthylio calendula<\/i><br>Magnuson Park<br>Apr 13, 2024<br><a href='https://ebird.org/species/ruckin' target='_blank'>View on eBird<\/a>","<b>Surf Scoter<\/b><br><i>Melanitta perspicillata<\/i><br>Stanley Park<br>Feb 10, 2024<br><a href='https://ebird.org/species/sursco' target='_blank'>View on eBird<\/a>","<b>Varied Thrush<\/b><br><i>Ixoreus naevius<\/i><br>Bald Eagle Interpretive Center<br>Jan 20, 2024<br><a href='https://ebird.org/species/varthr' target='_blank'>View on eBird<\/a>","<b>Greater Yellowlegs<\/b><br><i>Tringa melanoleuca<\/i><br>Cedar Beach<br>Nov 11, 2023<br><a href='https://ebird.org/species/greyel' target='_blank'>View on eBird<\/a>"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[30.25738,52.821913],"lng":[-126.830291,-71.05490399999999]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-58946529e4112d203e97" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-58946529e4112d203e97">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[47.659825,47.657273,47.531619,47.5295029,47.5295029,47.662003,47.657273,47.657273,47.657273,47.5891498,47.5891498,47.5891498,47.5891498,47.666793,47.65767,47.678319,47.8525399,47.657273,47.6501824,47.592269,47.653446,48.257717,48.418609,47.807425,47.807425,47.37107,47.678964,47.659865,47.820339,47.657517,33.176737,39.181458,39.182686,44.402554,39.182686,41.750789,47.65544,48.2245,47.657273,47.657273,45.564006,45.564006,45.382548,47.57421,47.661431,47.657273,47.652133,47.652133,47.704179,45.461179,45.461179,40.903328,41.042562,41.042562,41.042562,41.042562,41.042562,47.609141,47.652133,47.652133,42.36819,42.36819,42.368242,42.351865,47.657273,47.072685,47.077527,47.677419,30.25738,47.678319,52.821913,52.821913,40.962712,40.962712,40.962712,45.211273,45.214169,47.681364,47.674235,49.301889,48.485133,40.963899],[-122.30959,-122.288064,-122.035315,-122.039512,-122.039512,-122.284661,-122.288064,-122.288064,-122.288064,-122.1867639,-122.1867639,-122.1867639,-122.1867639,-122.290947,-122.29684,-122.256595,-121.9821051,-122.288064,-122.3052358,-120.662885,-122.323648,-124.35793,-123.366521,-122.388389,-122.388389,-122.142843,-122.207869,-122.289031,-122.306115,-122.114896,-117.347185,-122.016026,-122.035009,-123.338921,-122.035009,-124.182108,-122.308834,-122.465798,-122.288064,-122.288064,-122.311242,-122.311242,-122.830056,-122.417639,-122.2823,-122.288064,-122.300579,-122.300579,-122.332315,-123.968726,-123.968726,-73.22638600000001,-72.343653,-72.343653,-72.343653,-72.343653,-72.343653,-122.179817,-122.300579,-122.300579,-71.143762,-71.143762,-71.145599,-71.05490399999999,-122.288064,-122.712877,-122.709976,-122.253799,-97.74031600000001,-122.256595,-126.830291,-126.830291,-73.143291,-73.143291,-73.143291,-123.957366,-123.972109,-122.2485,-122.253327,-123.142319,-121.597921,-73.034768],{"iconUrl":{"data":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAzUExURQAAAOsAAOwAAO4AAO4AAOwAAO4AAO8AAO4AAO8AAO8AAO0AAO8AAO0AAO8AAO8AAO4AAJhF6PgAAAARdFJOUwBAUP+/YM8g7zAQcK+Aj5/fkAOqDQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAjhJREFUaEPtl9u2qyAMRVUocqv6/1+7A6QIShWhjHMemE+a0a6QkAQcOp1Op9P5TxgnfGjERAjFxza8CCFsxpcWQASEcIFvDbAOWnoYrQPCJb7/HOEcEIbvP0eig2a15B0QhZYKZka0Om4nR31C6jvubXX4EpU9tUZLdSnNKERokI4FbQBHUzkalQAfhkKDQaOtGB+CYXUusBEc1duwopDDutjLCKjuN7mhErKALcxRfZLc6Al4g9cwrihJUqhV61U9mbbBPjsYFOdrb4YwSZOPl+5+pZSzEN9dHpMEQJ7k3g0maxYRrYVSxraNm5Vwpt8XLRNVjcME4duB4+LGPaodThcl7goh6CwPNJ53vNpfTQd9zlY1ZtZYMBw8oCo+kiYEdVy/c5tHYhsgTXKY0Q5aUelaHrVgYhsgB2KQzD3ObipGPKnUCw8uhkSETw88c1k5AR4+B+gJ6MdnpErJVOip05ER/5dPPPYQSMSp0y0lV4KkEk3rP8+QIdUOXyib4p+izKAoACA7huLbQKaHilMoWa1Hqm7G56FzpnQHHMmpEQFjsIbTXD7xvIlD7vX9EVrEvf5alaD7La7bgH+vvz07xw7c69PG+kvb/PAX/rKMW31aM4Du9Wld+97ps9ov2kt9rnOvoF+50Od6qlX/qp91M8/hrM/0j6QtB322VGc8JtKnV19CZQT6DdQD/a2F+q5Pf1CLKZw+X5ssHrD6XLVZPGD0t3byRp81lAcHbeU7nU6n02nIMPwBLdIcorB6hocAAAAASUVORK5CYII=","index":0},"iconWidth":32,"iconHeight":32,"iconAnchorX":16,"iconAnchorY":16},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b>Cooper's Hawk<\/b><br><i>Astur cooperii<\/i><br>University of Washington<br>Oct 05, 2026<br><a href='https://ebird.org/species/coohaw' target='_blank'>View on eBird<\/a>","<b>Bewick's Wren<\/b><br><i>Thryomanes bewickii<\/i><br>Yeslar Swamp<br>Oct 05, 2026<br><a href='https://ebird.org/species/bewwre' target='_blank'>View on eBird<\/a>","<b>Chestnut-backed Chickadee<\/b><br><i>Poecile rufescens<\/i><br>Issaquah<br>Oct 04, 2026<br><a href='https://ebird.org/species/chbchi' target='_blank'>View on eBird<\/a>","<b>Red-breasted Nuthatch<\/b><br><i>Sitta canadensis<\/i><br>Issaquah Salmon Hatchery<br>Oct 04, 2026<br><a href='https://ebird.org/species/rebnut' target='_blank'>View on eBird<\/a>","<b>European Starling<\/b><br><i>Sturnus vulgaris<\/i><br>Issaquah Salmon Hatchery<br>Oct 04, 2026<br><a href='https://ebird.org/species/eursta' target='_blank'>View on eBird<\/a>","<b>Cedar Waxwing<\/b><br><i>Bombycilla cedrorum<\/i><br>Seattle Children’s<br>Oct 03, 2026<br><a href='https://ebird.org/species/cedwax' target='_blank'>View on eBird<\/a>","<b>American Coot<\/b><br><i>Fulica americana<\/i><br>Yeslar Swamp<br>Oct 01, 2026<br><a href='https://ebird.org/species/y00475' target='_blank'>View on eBird<\/a>","<b>Killdeer<\/b><br><i>Charadrius vociferus<\/i><br>Yeslar Swamp<br>Oct 01, 2026<br><a href='https://ebird.org/species/killde' target='_blank'>View on eBird<\/a>","<b>Marsh Wren<\/b><br><i>Cistothorus palustris<\/i><br>Yeslar Swamp<br>Oct 01, 2026<br><a href='https://ebird.org/species/marwre' target='_blank'>View on eBird<\/a>","<b>Anna's Hummingbird<\/b><br><i>Calypte anna<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/annhum' target='_blank'>View on eBird<\/a>","<b>Golden-crowned Kinglet<\/b><br><i>Regulus satrapa<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/gockin' target='_blank'>View on eBird<\/a>","<b>Brown Creeper<\/b><br><i>Certhia americana<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/brncre' target='_blank'>View on eBird<\/a>","<b>Yellow-rumped Warbler<\/b><br><i>Setophaga coronata<\/i><br>Mercer Slough<br>Sep 26, 2026<br><a href='https://ebird.org/species/yerwar' target='_blank'>View on eBird<\/a>","<b>Northern Flicker<\/b><br><i>Colaptes auratus<\/i><br>Calvary Cemetery, Seattle<br>Sep 24, 2026<br><a href='https://ebird.org/species/norfli' target='_blank'>View on eBird<\/a>","<b>Savannah Sparrow<\/b><br><i>Passerculus sandwichensis<\/i><br>Union Bay<br>Sep 16, 2026<br><a href='https://ebird.org/species/savspa' target='_blank'>View on eBird<\/a>","<b>Great Blue Heron<\/b><br><i>Ardea herodias<\/i><br>Magnuson Park<br>Sep 15, 2026<br><a href='https://ebird.org/species/grbher3' target='_blank'>View on eBird<\/a>","<b>Vaux's Swift<\/b><br><i>Chaetura vauxi<\/i><br>Monroe--Frank Wagner Elementary<br>Sep 10, 2026<br><a href='https://ebird.org/species/vauswi' target='_blank'>View on eBird<\/a>","<b>Common Yellowthroat<\/b><br><i>Geothlypis trichas<\/i><br>Yeslar Swamp<br>Sep 03, 2026<br><a href='https://ebird.org/species/comyel' target='_blank'>View on eBird<\/a>","<b>American Crow<\/b><br><i>Corvus brachyrhynchos<\/i><br>Montlake Triangle<br>Jul 29, 2026<br><a href='https://ebird.org/species/amecro' target='_blank'>View on eBird<\/a>","<b>Veery<\/b><br><i>Catharus fuscescens<\/i><br>Blackbird Island<br>Jun 28, 2026<br><a href='https://ebird.org/species/veery' target='_blank'>View on eBird<\/a>","<b>Mallard<\/b><br><i>Anas platyrhynchos<\/i><br>Ivars<br>Jun 19, 2026<br><a href='https://ebird.org/species/mallar3' target='_blank'>View on eBird<\/a>","<b>Cliff Swallow<\/b><br><i>Petrochelidon pyrrhonota<\/i><br>Clallam Bay<br>Jun 18, 2026<br><a href='https://ebird.org/species/cliswa' target='_blank'>View on eBird<\/a>","<b>Rock Pigeon<\/b><br><i>Columba livia<\/i><br>Victoria<br>Jun 13, 2026<br><a href='https://ebird.org/species/rocpig' target='_blank'>View on eBird<\/a>","<b>Tree Swallow<\/b><br><i>Tachycineta bicolor<\/i><br>Edmonds Marsh<br>Jun 06, 2026<br><a href='https://ebird.org/species/treswa' target='_blank'>View on eBird<\/a>","<b>Violet-green Swallow<\/b><br><i>Tachycineta thalassina<\/i><br>Edmonds Marsh<br>Jun 06, 2026<br><a href='https://ebird.org/species/vigswa' target='_blank'>View on eBird<\/a>","<b>Red-breasted Sapsucker<\/b><br><i>Sphyrapicus ruber<\/i><br>Soos Creel Trail<br>May 31, 2026<br><a href='https://ebird.org/species/rebsap' target='_blank'>View on eBird<\/a>","<b>Red-winged Blackbird<\/b><br><i>Agelaius phoeniceus<\/i><br>Kirkland<br>May 30, 2026<br><a href='https://ebird.org/species/rewbla' target='_blank'>View on eBird<\/a>","<b>American Robin<\/b><br><i>Turdus migratorius<\/i><br>Laurelhurst<br>May 18, 2026<br><a href='https://ebird.org/species/amerob' target='_blank'>View on eBird<\/a>","<b>Hutton's Vireo<\/b><br><i>Vireo huttoni<\/i><br>Scriber Lake Park<br>May 10, 2026<br><a href='https://ebird.org/species/hutvir' target='_blank'>View on eBird<\/a>","<b>Canada Goose<\/b><br><i>Branta canadensis<\/i><br>Marymoor Park<br>Apr 11, 2026<br><a href='https://ebird.org/species/cangoo' target='_blank'>View on eBird<\/a>","<b>Scaly-breasted Munia<\/b><br><i>Lonchura punctulata<\/i><br>Buena Vista Lagoon<br>Apr 04, 2026<br><a href='https://ebird.org/species/nutman' target='_blank'>View on eBird<\/a>","<b>Greater White-fronted Goose<\/b><br><i>Anser albifrons<\/i><br>Colusa NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/gwfgoo' target='_blank'>View on eBird<\/a>","<b>American Avocet<\/b><br><i>Recurvirostra americana<\/i><br>Colusa NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/ameavo' target='_blank'>View on eBird<\/a>","<b>Western Bluebird<\/b><br><i>Sialia mexicana<\/i><br>William Finney NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/wesblu' target='_blank'>View on eBird<\/a>","<b>Lesser Goldfinch<\/b><br><i>Spinus psaltria<\/i><br>Colusa NWR<br>Mar 23, 2026<br><a href='https://ebird.org/species/lesgol' target='_blank'>View on eBird<\/a>","<b>Brewer's Blackbird<\/b><br><i>Euphagus cyanocephalus<\/i><br>Best Western Plus<br>Mar 17, 2026<br><a href='https://ebird.org/species/brebla' target='_blank'>View on eBird<\/a>","<b>Ring-billed Gull<\/b><br><i>Larus delawarensis<\/i><br>University of Washington<br>Feb 19, 2026<br><a href='https://ebird.org/species/ribgul' target='_blank'>View on eBird<\/a>","<b>Greater Scaup<\/b><br><i>Aythya marila<\/i><br>Camano Island<br>Feb 01, 2026<br><a href='https://ebird.org/species/gresca' target='_blank'>View on eBird<\/a>","<b>Green-winged Teal<\/b><br><i>Anas crecca<\/i><br>Yeslar Swamp<br>Jan 17, 2026<br><a href='https://ebird.org/species/gnwtea' target='_blank'>View on eBird<\/a>","<b>Hooded Merganser<\/b><br><i>Lophodytes cucullatus<\/i><br>Yeslar Swamp<br>Jan 17, 2026<br><a href='https://ebird.org/species/hoomer' target='_blank'>View on eBird<\/a>","<b>Golden Eagle<\/b><br><i>Aquila chrysaetos<\/i><br>Steigerwald Lake National Wildlife Refuge<br>Dec 31, 2025<br><a href='https://ebird.org/species/goleag' target='_blank'>View on eBird<\/a>","<b>Western Meadowlark<\/b><br><i>Sturnella neglecta<\/i><br>Steigerwald Lake National Wildlife Refuge<br>Dec 31, 2025<br><a href='https://ebird.org/species/wesmea' target='_blank'>View on eBird<\/a>","<b>Northern Pintail<\/b><br><i>Anas acuta<\/i><br>Tualatin National Wildlife Refuge<br>Dec 27, 2025<br><a href='https://ebird.org/species/norpin' target='_blank'>View on eBird<\/a>","<b>Harlequin Duck<\/b><br><i>Histrionicus histrionicus<\/i><br>Constellation Park<br>Dec 20, 2025<br><a href='https://ebird.org/species/harduc' target='_blank'>View on eBird<\/a>","<b>Barred Owl<\/b><br><i>Strix varia<\/i><br>Seattle Children’s<br>Dec 18, 2025<br><a href='https://ebird.org/species/brdowl' target='_blank'>View on eBird<\/a>","<b>American Wigeon<\/b><br><i>Mareca americana<\/i><br>Yeslar Swamp<br>Dec 13, 2025<br><a href='https://ebird.org/species/amewig' target='_blank'>View on eBird<\/a>","<b>Green Heron<\/b><br><i>Butorides virescens<\/i><br>Union Bay<br>Aug 12, 2025<br><a href='https://ebird.org/species/grnher' target='_blank'>View on eBird<\/a>","<b>Belted Kingfisher<\/b><br><i>Megaceryle alcyon<\/i><br>Union Bay<br>Aug 12, 2025<br><a href='https://ebird.org/species/belkin1' target='_blank'>View on eBird<\/a>","<b>Dark-eyed Junco<\/b><br><i>Junco hyemalis<\/i><br>NW Outpatient Center<br>Aug 11, 2025<br><a href='https://ebird.org/species/daejun' target='_blank'>View on eBird<\/a>","<b>Pigeon Guillemot<\/b><br><i>Cepphus columba<\/i><br>Oceanside Beach<br>Jul 28, 2025<br><a href='https://ebird.org/species/piggui' target='_blank'>View on eBird<\/a>","<b>Western Gull<\/b><br><i>Larus occidentalis<\/i><br>Oceanside Beach<br>Jul 28, 2025<br><a href='https://ebird.org/species/wesgul' target='_blank'>View on eBird<\/a>","<b>Forster's Tern<\/b><br><i>Sterna forsteri<\/i><br>Nissequogue River<br>Jul 13, 2025<br><a href='https://ebird.org/species/forter' target='_blank'>View on eBird<\/a>","<b>Mourning Dove<\/b><br><i>Zenaida macroura<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/moudov' target='_blank'>View on eBird<\/a>","<b>Piping Plover<\/b><br><i>Charadrius melodus<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/pipplo' target='_blank'>View on eBird<\/a>","<b>American Herring Gull<\/b><br><i>Larus smithsonianus<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/amhgul1' target='_blank'>View on eBird<\/a>","<b>Least Tern<\/b><br><i>Sternula antillarum<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/leater1' target='_blank'>View on eBird<\/a>","<b>Prairie Warbler<\/b><br><i>Setophaga discolor<\/i><br>Shell Beach<br>Jul 10, 2025<br><a href='https://ebird.org/species/prawar' target='_blank'>View on eBird<\/a>","<b>Spotted Towhee<\/b><br><i>Pipilo maculatus<\/i><br>Bellevue Botanical Garden<br>Jun 21, 2025<br><a href='https://ebird.org/species/spotow' target='_blank'>View on eBird<\/a>","<b>Wood Duck<\/b><br><i>Aix sponsa<\/i><br>Union Bay<br>Jun 18, 2025<br><a href='https://ebird.org/species/wooduc' target='_blank'>View on eBird<\/a>","<b>Purple Martin<\/b><br><i>Progne subis<\/i><br>Union Bay<br>Jun 12, 2025<br><a href='https://ebird.org/species/purmar' target='_blank'>View on eBird<\/a>","<b>Wild Turkey<\/b><br><i>Meleagris gallopavo<\/i><br>Mount Auburn Cemetery<br>May 24, 2025<br><a href='https://ebird.org/species/wiltur' target='_blank'>View on eBird<\/a>","<b>Chimney Swift<\/b><br><i>Chaetura pelagica<\/i><br>Mount Auburn Cemetery<br>May 24, 2025<br><a href='https://ebird.org/species/chiswi' target='_blank'>View on eBird<\/a>","<b>Eastern Kingbird<\/b><br><i>Tyrannus tyrannus<\/i><br>Mount Auburn Cemetery<br>May 24, 2025<br><a href='https://ebird.org/species/easkin' target='_blank'>View on eBird<\/a>","<b>Rock Pigeon (Feral Pigeon)<\/b><br><i>Columba livia (Feral Pigeon)<\/i><br>South Station<br>May 23, 2025<br><a href='https://ebird.org/species/rocpig1' target='_blank'>View on eBird<\/a>","<b>Gadwall<\/b><br><i>Mareca strepera<\/i><br>Yeslar Swamp<br>May 18, 2025<br><a href='https://ebird.org/species/gadwal' target='_blank'>View on eBird<\/a>","<b>Cinnamon Teal<\/b><br><i>Spatula cyanoptera<\/i><br>Billy Frank Jr Wildlife Refuge<br>May 11, 2025<br><a href='https://ebird.org/species/cintea' target='_blank'>View on eBird<\/a>","<b>Rufous Hummingbird<\/b><br><i>Selasphorus rufus<\/i><br>Billy Frank Jr Wildlife Refuge<br>May 11, 2025<br><a href='https://ebird.org/species/rufhum' target='_blank'>View on eBird<\/a>","<b>Pied-billed Grebe<\/b><br><i>Podilymbus podiceps<\/i><br>Magnuson Park<br>Apr 12, 2025<br><a href='https://ebird.org/species/pibgre' target='_blank'>View on eBird<\/a>","<b>Hermit Thrush<\/b><br><i>Catharus guttatus<\/i><br>Lady Bird Lake<br>Nov 03, 2024<br><a href='https://ebird.org/species/herthr' target='_blank'>View on eBird<\/a>","<b>Golden-crowned Sparrow<\/b><br><i>Zonotrichia atricapilla<\/i><br>Magnuson Park<br>Oct 12, 2024<br><a href='https://ebird.org/species/gocspa' target='_blank'>View on eBird<\/a>","<b>American Dipper<\/b><br><i>Cinclus mexicanus<\/i><br>Dean River<br>Sep 02, 2024<br><a href='https://ebird.org/species/amedip' target='_blank'>View on eBird<\/a>","<b>Common Merganser<\/b><br><i>Mergus merganser<\/i><br>Dean River<br>Aug 31, 2024<br><a href='https://ebird.org/species/commer' target='_blank'>View on eBird<\/a>","<b>Spotted Sandpiper<\/b><br><i>Actitis macularius<\/i><br>Flax Pond<br>Aug 14, 2024<br><a href='https://ebird.org/species/sposan' target='_blank'>View on eBird<\/a>","<b>Great Egret<\/b><br><i>Ardea alba<\/i><br>Flax Pond<br>Aug 14, 2024<br><a href='https://ebird.org/species/greegr' target='_blank'>View on eBird<\/a>","<b>Barn Swallow<\/b><br><i>Hirundo rustica<\/i><br>Flax Pond<br>Aug 14, 2024<br><a href='https://ebird.org/species/barswa' target='_blank'>View on eBird<\/a>","<b>Turkey Vulture<\/b><br><i>Cathartes aura<\/i><br>Nestucca River<br>Aug 03, 2024<br><a href='https://ebird.org/species/turvul' target='_blank'>View on eBird<\/a>","<b>Brown Pelican<\/b><br><i>Pelecanus occidentalis<\/i><br>Pacific City Beach<br>Aug 02, 2024<br><a href='https://ebird.org/species/brnpel' target='_blank'>View on eBird<\/a>","<b>Osprey<\/b><br><i>Pandion haliaetus<\/i><br>Magnuson Park<br>Apr 13, 2024<br><a href='https://ebird.org/species/osprey' target='_blank'>View on eBird<\/a>","<b>Ruby-crowned Kinglet<\/b><br><i>Corthylio calendula<\/i><br>Magnuson Park<br>Apr 13, 2024<br><a href='https://ebird.org/species/ruckin' target='_blank'>View on eBird<\/a>","<b>Surf Scoter<\/b><br><i>Melanitta perspicillata<\/i><br>Stanley Park<br>Feb 10, 2024<br><a href='https://ebird.org/species/sursco' target='_blank'>View on eBird<\/a>","<b>Varied Thrush<\/b><br><i>Ixoreus naevius<\/i><br>Bald Eagle Interpretive Center<br>Jan 20, 2024<br><a href='https://ebird.org/species/varthr' target='_blank'>View on eBird<\/a>","<b>Greater Yellowlegs<\/b><br><i>Tringa melanoleuca<\/i><br>Cedar Beach<br>Nov 11, 2023<br><a href='https://ebird.org/species/greyel' target='_blank'>View on eBird<\/a>"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[30.25738,52.821913],"lng":[-126.830291,-71.05490399999999]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="rqdchadrog" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rqdchadrog table {
+<div id="juaggjnchy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#juaggjnchy table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#rqdchadrog thead, #rqdchadrog tbody, #rqdchadrog tfoot, #rqdchadrog tr, #rqdchadrog td, #rqdchadrog th {
+#juaggjnchy thead, #juaggjnchy tbody, #juaggjnchy tfoot, #juaggjnchy tr, #juaggjnchy td, #juaggjnchy th {
 border-style: none;
 }
-#rqdchadrog p {
+#juaggjnchy p {
 margin: 0;
 padding: 0;
 }
-#rqdchadrog .gt_table {
+#juaggjnchy .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -8328,11 +8340,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#rqdchadrog .gt_caption {
+#juaggjnchy .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#rqdchadrog .gt_title {
+#juaggjnchy .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -8343,7 +8355,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#rqdchadrog .gt_subtitle {
+#juaggjnchy .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -8354,7 +8366,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#rqdchadrog .gt_heading {
+#juaggjnchy .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -8365,12 +8377,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#rqdchadrog .gt_bottom_border {
+#juaggjnchy .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#rqdchadrog .gt_col_headings {
+#juaggjnchy .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8384,7 +8396,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#rqdchadrog .gt_col_heading {
+#juaggjnchy .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8403,7 +8415,7 @@ padding-left: 20px;
 padding-right: 20px;
 overflow-x: hidden;
 }
-#rqdchadrog .gt_column_spanner_outer {
+#juaggjnchy .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8414,13 +8426,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#rqdchadrog .gt_column_spanner_outer:first-child {
+#juaggjnchy .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#rqdchadrog .gt_column_spanner_outer:last-child {
+#juaggjnchy .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#rqdchadrog .gt_column_spanner {
+#juaggjnchy .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -8431,10 +8443,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#rqdchadrog .gt_spanner_row {
+#juaggjnchy .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#rqdchadrog .gt_group_heading {
+#juaggjnchy .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8459,7 +8471,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#rqdchadrog .gt_empty_group_heading {
+#juaggjnchy .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -8473,13 +8485,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#rqdchadrog .gt_from_md > :first-child {
+#juaggjnchy .gt_from_md > :first-child {
 margin-top: 0;
 }
-#rqdchadrog .gt_from_md > :last-child {
+#juaggjnchy .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#rqdchadrog .gt_row {
+#juaggjnchy .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 20px;
@@ -8497,7 +8509,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#rqdchadrog .gt_stub {
+#juaggjnchy .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8509,7 +8521,7 @@ border-right-color: #D3D3D3;
 padding-left: 20px;
 padding-right: 20px;
 }
-#rqdchadrog .gt_stub_row_group {
+#juaggjnchy .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -8522,13 +8534,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#rqdchadrog .gt_row_group_first td {
+#juaggjnchy .gt_row_group_first td {
 border-top-width: 2px;
 }
-#rqdchadrog .gt_row_group_first th {
+#juaggjnchy .gt_row_group_first th {
 border-top-width: 2px;
 }
-#rqdchadrog .gt_summary_row {
+#juaggjnchy .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8537,14 +8549,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#rqdchadrog .gt_first_summary_row {
+#juaggjnchy .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#rqdchadrog .gt_first_summary_row.thick {
+#juaggjnchy .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#rqdchadrog .gt_last_summary_row {
+#juaggjnchy .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8553,7 +8565,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#rqdchadrog .gt_grand_summary_row {
+#juaggjnchy .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -8562,7 +8574,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#rqdchadrog .gt_first_grand_summary_row {
+#juaggjnchy .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8571,7 +8583,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#rqdchadrog .gt_last_grand_summary_row_top {
+#juaggjnchy .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -8580,10 +8592,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#rqdchadrog .gt_striped {
+#juaggjnchy .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#rqdchadrog .gt_table_body {
+#juaggjnchy .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -8591,7 +8603,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#rqdchadrog .gt_footnotes {
+#juaggjnchy .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8604,7 +8616,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#rqdchadrog .gt_footnote {
+#juaggjnchy .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -8612,7 +8624,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#rqdchadrog .gt_sourcenotes {
+#juaggjnchy .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -8625,64 +8637,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#rqdchadrog .gt_sourcenote {
+#juaggjnchy .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#rqdchadrog .gt_left {
+#juaggjnchy .gt_left {
 text-align: left;
 }
-#rqdchadrog .gt_center {
+#juaggjnchy .gt_center {
 text-align: center;
 }
-#rqdchadrog .gt_right {
+#juaggjnchy .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#rqdchadrog .gt_font_normal {
+#juaggjnchy .gt_font_normal {
 font-weight: normal;
 }
-#rqdchadrog .gt_font_bold {
+#juaggjnchy .gt_font_bold {
 font-weight: bold;
 }
-#rqdchadrog .gt_font_italic {
+#juaggjnchy .gt_font_italic {
 font-style: italic;
 }
-#rqdchadrog .gt_super {
+#juaggjnchy .gt_super {
 font-size: 65%;
 }
-#rqdchadrog .gt_footnote_marks {
+#juaggjnchy .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#rqdchadrog .gt_asterisk {
+#juaggjnchy .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#rqdchadrog .gt_indent_1 {
+#juaggjnchy .gt_indent_1 {
 text-indent: 5px;
 }
-#rqdchadrog .gt_indent_2 {
+#juaggjnchy .gt_indent_2 {
 text-indent: 10px;
 }
-#rqdchadrog .gt_indent_3 {
+#juaggjnchy .gt_indent_3 {
 text-indent: 15px;
 }
-#rqdchadrog .gt_indent_4 {
+#juaggjnchy .gt_indent_4 {
 text-indent: 20px;
 }
-#rqdchadrog .gt_indent_5 {
+#juaggjnchy .gt_indent_5 {
 text-indent: 25px;
 }
-#rqdchadrog .katex-display {
+#juaggjnchy .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#rqdchadrog div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#juaggjnchy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
